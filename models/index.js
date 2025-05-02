@@ -11,7 +11,7 @@ const connection = {
   port: process.env.DB_PORT,
   dialect: process.env.DIALECT,
   // dialectmodel: process.env.DIALECTMODEL,
-  dialectmodel: require('mysql2'),
+  dialectModule: require('mysql2'),
 };
 const sequelize = new Sequelize(connection);
 const db = {}
@@ -31,4 +31,5 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
+
 module.exports = db
